@@ -45,5 +45,38 @@ eventListeners();
 
 //////////////////////////////////////////////////////////////////////////////
 
+// Save to database free drinks winners
+// Creating variables that targets the elements in DOM
+var fName = document.getElementById("fName");
+var lName = document.getElementById("lName");
+var eMail = document.getElementById("eMail");
+var submitBtn = document.getElementById("submitBtn");
+
+// OnClick event function
+function submitClick() {
+    // referencing the database to store data
+    var firebaseRef = firebase.database().ref("Winners");
+    // What is entered in input field beeing stored in database
+    var first_Name = fName.value;
+    var last_Name = lName.value;
+    var e_Mail = eMail.value;
+    firebaseRef.push().set({ first_Name, last_Name, e_Mail });
+}
+
+// Retrive from database and show free drink winners
 
 
+// Retriving multiple data from Database
+
+// referencing the database to store data - in this case child "Users"
+var rootRef = firebase.database().ref().child("Winners");
+
+// Retriving name and username from database
+rootRef.on("child_added", snap => {
+
+    var fName = snap.child("first_Name").val();
+    var lName = snap.child("last_Name").val();
+
+    $("#list_body").append("<li>" + fName + " " + lName + "</li>");
+
+});

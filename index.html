@@ -56,7 +56,7 @@
                 <source src="video/Coffe.mp4" type="video/mp4">
                 <source src="video/Coffe.ogv" type="video/ogv">
                 <source src="video/Coffe.webm" type="video/webm">
-                Your browser doesm't suport video
+                Your browser doesn't suport video
             </video>
         </article>
 
@@ -70,7 +70,7 @@
             <ul class="nav__links">
                 <li>
                     <a href="#" class="nav__single-link nav__logo">
-                        <img class="logo__img" src="img/logo2.png">
+                        <img class="logo__img" src="img/logo.png">
                     </a>
                 </li>
                 <li><a href="#header" class="nav__single-link"> Home </a></li>
@@ -95,6 +95,115 @@
 
 
 
+    <!-- About us -->
+    <section class="about section-padding" id="about">
+        <div class="grid-container grid-container--medium-2">
+
+            <!-- about us container no 1 -->
+            <article class="about-container">
+
+                <!-- first child element -->
+                <div class="section-title">
+                    <h1 class="section-title__name bell-fonts"> Our Story </h1>
+                    <div class="section-title_underline"> </div>
+                    <p class="section-title__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad
+                        illo est facilis voluptate sint id sit placeat illum dolorum?</p>
+                </div>
+
+                <!-- second child element -->
+                <div class="about__img ">
+                    <img src="img/about-img-1.jpg" class="about-img-item" alt="about-img">
+                </div>
+
+            </article>
+            <!-- about us container no 1 end -->
+
+
+            <!-- about us container no 2 -->
+            <article class="about-container">
+
+                <!-- first child element -->
+                <div class="section-title">
+                    <h1 class="section-title__name bell-fonts"> What we do </h1>
+                    <div class="section-title_underline"> </div>
+                    <p class="section-title__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ad
+                        illo est facilis voluptate sint id sit placeat illum dolorum?</p>
+                </div>
+
+                <!-- second child element -->
+                <div class="about__img about__img-special">
+                    <img src="img/about-img-2.jpg" class="about-img-item" alt="about-img">
+                </div>
+
+            </article>
+            <!-- about us container no 2 end -->
+
+        </div>
+    </section>
+    <!-- About us end -->
+
+
+
+    <!-- Drinks section start -->
+    <section class="drink section-padding" id="drink">
+        <div class="grid-container">
+
+            <!-- Drink form -->
+            <article class="drink-form">
+                <p class="drink-form__feedback">some text</p>
+                <h3 class="drink-form__title bell-fonts"> To get free drinks: </h3>
+
+                <div class="drink-form_input">
+                    <input type="text" name="" id="fName" maxlength="25" class="input-name" placeholder="First Name">
+                </div>
+
+                <div class="drink-form_input">
+                    <input type="text" name="" id="lName" maxlength="25" class="input-lastname" placeholder="Last Name">
+                </div>
+
+                <div class="drink-form_input">
+                    <input type="email" name="" id="eMail" maxlength="25" class="input-email" placeholder="Email">
+                </div>
+
+                <div class="drink-form_input">
+                    <button id="submitBtn" class="submitBtn" onclick="submitClick()">
+                        <i class="buttonClass"></i>
+                        SIGN UP
+                    </button> <br>
+                </div>
+            </article>
+
+
+            <!-- Card -->
+            <article class="drink-card">
+                <h3 class="drink-card__title bell-fonts">Lucky people:</h3>
+                <div class="person">
+                    <ul class="winnersList bell-fonts" id="list_body"> </ul>
+                </div>
+            </article>
+
+        </div>
+    </section>
+    <!-- Drinks section end -->
+
+
+
+    <!-- Importing scripts from Firebase that allows using it -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDI5_k9Og1E66TOCWMdZ5iYmY0I-qUPNyI",
+            authDomain: "caffebar-cae92.firebaseapp.com",
+            databaseURL: "https://caffebar-cae92.firebaseio.com",
+            projectId: "caffebar-cae92",
+            storageBucket: "caffebar-cae92.appspot.com",
+            messagingSenderId: "176113013657"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 

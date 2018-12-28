@@ -1,3 +1,5 @@
+/*////////////////////////////////////Start of global Styling/////////////////////////////////////////////////////////*/
+
 @import url('https://fonts.googleapis.com/css?family=Calligraffitti|Open+Sans');
 :root {
     --brightYellow: #dac82d;
@@ -26,6 +28,47 @@ body {
 .bell-fonts {
     font-family: 'Calligraffitti', cursive;
 }
+
+/* Seting padding for every section of about part */
+
+.section-padding {
+    padding: 3rem 0;
+}
+
+/* Grid container for about part */
+
+.grid-container {
+    max-width: 90vw;
+    margin: 2rem auto;
+    display: grid;
+    grid-row-gap: 2rem;
+}
+
+/* Section of about part styling */
+
+.section-title {
+    padding: 1rem 0.5rem;
+}
+
+.section-title__name {
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+.section-title_underline {
+    background: var(--yellow);
+    width: 6rem;
+    height: 0.45rem;
+}
+
+.section-title__text {
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    color: rgb(66, 66, 66);
+}
+
+/*////////////////////////////////////End of global Styling/////////////////////////////////////////////////////////*/
 
 /* Preloader styling */
 
@@ -198,6 +241,121 @@ body {
     display: none;
 }
 
+/* About us section */
+
+.about-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    grid-gap: 2rem;
+}
+
+/* Image styling */
+
+.about-img-item {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+/* Free drinks section styling */
+
+/* Input fields */
+
+.drink {
+    background: var(--brown);
+    color: var(--brightYellow);
+    text-transform: capitalize;
+}
+
+.drink-form,
+.drink-card {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 70%;
+    justify-content: center;
+    grid-gap: 1.25rem;
+}
+
+.drink-form__feedback {
+    border: 0.1rem solid var(--brightYellow);
+    padding: 0.25rem;
+    display: none;
+}
+
+.error {
+    display: block;
+    color: red;
+    border-color: red;
+}
+
+.success {
+    display: block;
+    color: green;
+    border-color: green;
+}
+
+.drink-form__title,
+.drink-card__title {
+    font-size: 3rem;
+}
+
+.input-name,
+.input-lastname,
+.input-email,
+.submitBtn {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(111, 87, 77, 0.6);
+    color: var(--darkBrown);
+    border: none;
+    outline: none;
+}
+
+.input-name::placeholder,
+.input-lastname::placeholder,
+.input-email::placeholder {
+    color: var(--darkBrown);
+    text-transform: capitalize;
+}
+
+.submitBtn {
+    background: var(--yellow);
+    color: var(--black);
+    transition: all 0.8 linear;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.submitBtn:hover {
+    opacity: 0.7;
+}
+
+/* Free drinks list */
+
+.person {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+}
+
+.winnersList {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 2rem;
+    align-items: center;
+}
+
+.winnersList>li {
+    list-style: none;
+    font-size: 1.5rem;
+    border: 0.1rem solid rgba(111, 87, 77, 0.6);
+    border-radius: 0.5rem;
+}
+
 /* Media Queryes */
 
 /* header for smaller screen: */
@@ -249,5 +407,22 @@ body {
     }
     .btnSlide {
         left: 50%;
+    }
+    /* Styling grid container for about section */
+    .grid-container--medium-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 4rem;
+    }
+    .grid-container {
+        max-width: 75vw;
+    }
+    /* Styling about container - text and images */
+    .about__img-special {
+        order: -1;
+        /* changes the order of elements in this case image and text */
+    }
+    .about-container {
+        grid-template-rows: 1fr 1fr;
     }
 }
