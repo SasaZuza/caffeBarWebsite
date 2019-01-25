@@ -488,7 +488,7 @@ body {
 .contact-item__text {
     font-size: 1rem;
     text-transform: uppercase;
-    color: var(--grey);
+    color: darkslategrey;
 }
 
 /* Media Queryes */
