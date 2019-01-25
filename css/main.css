@@ -50,6 +50,10 @@ body {
     padding: 1rem 0.5rem;
 }
 
+.section-title-left {
+    margin-left: 10rem;
+}
+
 .section-title__name {
     font-size: 3rem;
     text-transform: capitalize;
@@ -356,6 +360,137 @@ body {
     border-radius: 0.5rem;
 }
 
+/* Our work section */
+
+.work-container {
+    max-width: 90%;
+    margin: 2rem auto;
+}
+
+.work-item__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all 1s linear;
+}
+
+.work-item {
+    background: linear-gradient(var(--yellow), var(--yellow));
+    overflow: hidden;
+    /* When image is zoomed it doesn't expend over inserted borders */
+    position: relative;
+}
+
+.work-item:hover .work-item__img {
+    opacity: 0.5;
+    transform: scale(1.2);
+    /* On hover it zooms the image */
+}
+
+/* Styling of search icon, positioning, transform and scale effects */
+
+.work-item__icon {
+    position: absolute;
+    color: var(--brightYellow);
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    font-size: 4rem;
+    text-decoration: none;
+    transition: all 0.5 ease;
+    transform: scale(0);
+}
+
+.work-item:hover .work-item__icon {
+    transform: scale(1.3) translate(-50%, -50%);
+    /* On hover zoom in icon size and place it on center */
+}
+
+.work-item__icon:hover {
+    color: var(--brown);
+    cursor: pointer;
+}
+
+/* Zooming Work image on click */
+
+.work-model {
+    display: none;
+}
+
+.work-model-show {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-model__item {
+    background: url('../img/work-1.jpg')center/cover;
+    height: 70vh;
+    width: 80vw;
+    border: 0.5rem solid var(--yellow);
+    border-radius: 0.4rem;
+}
+
+.work-model__close {
+    position: fixed;
+    font-size: 3rem;
+    color: var(--brightYellow);
+    bottom: 5%;
+    right: 5%;
+    transition: color 0.7s linear;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.work-model__close:hover {
+    color: red;
+}
+
+/* Contact section */
+
+.contact-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-row-gap: 1rem;
+}
+
+.contact-info {
+    display: grid;
+    justify-content: center;
+}
+
+.contact-item {
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.contact-item__icon {
+    font-size: 3rem;
+    color: var(--yellow);
+}
+
+.contact-item__title {
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    letter-spacing: 0.25rem;
+    font-style: italic;
+}
+
+.contact-item__text {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
 /* Media Queryes */
 
 /* header for smaller screen: */
@@ -371,6 +506,14 @@ body {
 }
 
 /* Styling for screens in this range */
+
+@media screen and (min-width: 576px) {
+    .work-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .banner__title {
@@ -424,5 +567,71 @@ body {
     }
     .about-container {
         grid-template-rows: 1fr 1fr;
+    }
+    /* For this screen sorts names into 2 columns */
+    .winnersList {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+    /* Layout for images in section Our Work */
+    .work-container {
+        height: 120vh;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: "one one two three" "one one four four" "five six seven seven" "eight nine seven seven"
+    }
+    .item-1 {
+        grid-area: one;
+    }
+    .item-2 {
+        grid-area: two;
+    }
+    .item-3 {
+        grid-area: three;
+    }
+    .item-4 {
+        grid-area: four;
+    }
+    .item-5 {
+        grid-area: five;
+    }
+    .item-6 {
+        grid-area: six;
+    }
+    .item-7 {
+        grid-area: seven;
+    }
+    .item-8 {
+        grid-area: eight;
+    }
+    .item-9 {
+        grid-area: nine;
+    }
+    /* Zoomed image after clicking on it from work section */
+    .work-model__item {
+        height: 80vh;
+        width: 60vw;
+    }
+    /* Contact section styling */
+    .contact-info {
+        grid-template-columns: repeat(3, 1fr);
+        order: -1;
+        /* Reversing order of rows */
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        order: 0;
+        /* Geting back order of rows */
+    }
+    .contact-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-column-gap: 2rem;
+    }
+    .contact-map {
+        align-self: center;
     }
 }

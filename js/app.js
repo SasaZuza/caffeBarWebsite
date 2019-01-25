@@ -22,7 +22,31 @@ class UI {
         }
     }
 
+    // ShowModel method that shows images enlargen on click
+    // 'dataset.id' shows the id of clicked image
+    showModel(event) {
+        // When clicking on image preventing default action to go at the top of the page
+        event.preventDefault();
+
+        if (event.target.parentElement.classList.contains('work-item__icon')) {
+            let id = event.target.parentElement.dataset.id;
+
+            // Creating and using variables to enlarge image on click in work section
+            const model = document.querySelector('.work-model');
+            const modelItem = document.querySelector('.work-model__item');
+
+            model.classList.add('work-model-show');
+            modelItem.style.backgroundImage = `url(img/work-${id}.jpg)`
+        }
+    }
+
+    // closeModel method that hides zoomed image when X is clicked 
+    closeModel() {
+        document.querySelector('.work-model').classList.remove('work-model-show')
+    }
+
 }
+
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -33,11 +57,27 @@ function eventListeners() {
     // Hide preloader when window loads - calling of method
     window.addEventListener('load', () => ui.hidePreloader())
 
+
     // Nav button funcionality (show-hide menu on button click) - calling of method
     document.querySelector('.navBtn').addEventListener('click', () => ui.showNav())
 
+
     // Switch button ON/OFF effect
     document.querySelector('.video__switch').addEventListener('click', () => ui.videoControls())
+
+
+    // Zooming image in work section on click
+    const links = document.querySelectorAll('.work-item__icon');
+    // Function that calls and display images on clicking in work section
+    links.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            ui.showModel(event)
+        })
+    })
+
+
+    // Hiding image when user click X on zoomed image
+    document.querySelector('.work-model__close').addEventListener('click', () => ui.closeModel())
 
 }
 // Calling of function
@@ -80,3 +120,5 @@ rootRef.on("child_added", snap => {
     $("#list_body").append("<li>" + fName + " " + lName + "</li>");
 
 });
+
+//////////////////////////////////////////////////////////////////////////////
